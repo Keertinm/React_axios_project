@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import './App.css'
+import Table from 'react-bootstrap/Table';
+// import Container from 'react-bootstrap/Container';
+// import './App.css'
 
  function FetchData() {
   const [data, setData] = useState([])
@@ -11,34 +13,34 @@ import './App.css'
 
     },[])
   return (
-    <div className='container'>
-        <div className='mt-3'>
-          <h3>Fetch Data from API in React with</h3>
-          <table className='table'>
+    <div className='Container'>
+      
+          <h3>Post List </h3>
+          <Table striped bordered hover size="sm">
             <thead>
-              <tr>
+              <tr class="table-primary">
                 <th>ID</th>
                 <th>title</th>
                 <th>body</th>
-                {/* <th>City</th> */}
+                
               </tr>
             </thead>
-            <tbody>
+            <tbody class="table-success">
               {
                 data.map((user,index) => {
                   return <tr key={index}>
                     <td>{user.id}</td>
                     <td>{user.title}</td>
                     <td>{user.body}</td>
-                    {/* <td>{user.address.city}</td> */}
+                   
                   </tr>
                 })
               }
             </tbody>
-          </table>
+          </Table>
 
         </div>
-    </div>
+    
   )
 }
 export default FetchData;
